@@ -1,27 +1,22 @@
-/* General page styling */
+
 body {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  color: #fff; /* switch text to white for contrast */
+  color: #fff; 
 }
 
-
-
-
-/* Container */
 .container {
-  max-width: 600px;   /* narrower width */
-  margin: 40px auto;  /* less vertical spacing */
-  padding: 25px;      /* smaller padding inside */
+  max-width: 600px;   
+  margin: 40px auto;  
+  padding: 25px;      
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Heading with globe */
 h1 {
   font-size: 42px;
   margin-bottom: 20px;
@@ -38,13 +33,11 @@ h1 i {
   animation: spin 10s linear infinite;
 }
 
-/* Globe spin animation */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* City section */
 .city {
   display: flex;
   justify-content: space-between;
@@ -82,7 +75,6 @@ h2 {
   color: #4a90e2;
 }
 
-/* Dropdown */
 select {
   width: 100%;
   padding: 12px;
@@ -98,7 +90,6 @@ select:focus {
   outline: none;
 }
 
-/* Footer */
 footer {
   text-align: center;
   font-size: 16px;

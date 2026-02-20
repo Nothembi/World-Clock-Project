@@ -1,5 +1,4 @@
 function updateTime() {
-  // Helper function
   function updateCityTime(cityId, timeZone) {
     let cityElement = document.querySelector(`#${cityId}`);
     if (cityElement) {
@@ -16,7 +15,6 @@ function updateTime() {
   updateCityTime("paris", "Europe/Paris");
   updateCityTime("tokyo", "Asia/Tokyo");
 
-  // Current location
   let currentTimeZone = moment.tz.guess();
   updateCityTime("current-location", currentTimeZone);
 }
