@@ -1,29 +1,24 @@
 function updateTime() {
-  // Los Angeles
-  let losAngelesElement = document.querySelector("#los-angeles");
-  if (losAngelesElement) {
-    let losAngelesDateElement = losAngelesElement.querySelector(".date");
-    let losAngelesTimeElement = losAngelesElement.querySelector(".time");
-    let losAngelesTime = moment().tz("America/Los_Angeles");
+  // Helper function
+  function updateCityTime(cityId, timeZone) {
+    let cityElement = document.querySelector(`#${cityId}`);
+    if (cityElement) {
+      let dateElement = cityElement.querySelector(".date");
+      let timeElement = cityElement.querySelector(".time");
+      let cityTime = moment().tz(timeZone);
 
-    losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM	Do YYYY");
-    losAngelesTimeElement.innerHTML = losAngelesTime.format(
-      "h:mm:ss [<small>]A[</small>]"
-    );
+      dateElement.innerHTML = cityTime.format("MMMM Do YYYY");
+      timeElement.innerHTML = cityTime.format("h:mm:ss [<small>]A[</small>]");
+    }
   }
 
-  // Paris
-  let parisElement = document.querySelector("#paris");
-  if (parisElement) {
-    let parisDateElement = parisElement.querySelector(".date");
-    let parisTimeElement = parisElement.querySelector(".time");
-    let parisTime = moment().tz("Europe/Paris");
+  updateCityTime("los-angeles", "America/Los_Angeles");
+  updateCityTime("paris", "Europe/Paris");
+  updateCityTime("tokyo", "Asia/Tokyo");
 
-    parisDateElement.innerHTML = parisTime.format("MMMM	Do YYYY");
-    parisTimeElement.innerHTML = parisTime.format(
-      "h:mm:ss [<small>]A[</small>]"
-    );
-  }
+  // Current location
+  let currentTimeZone = moment.tz.guess();
+  updateCityTime("current-location", currentTimeZone);
 }
 
 function updateCity(event) {
@@ -35,15 +30,18 @@ function updateCity(event) {
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
-  <div class="city">
-    <div>
-      <h2>${cityName}</h2>
-      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
+    <div class="city">
+      <div>
+        <h2>${cityName}</h2>
+        <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+      </div>
+      <div class="time">${cityTime.format("h:mm:ss")} 
+        <small>${cityTime.format("A")}</small>
+      </div>
     </div>
-    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
-    "A"
-  )}</small></div>
-  </div>
+    <div style="margin-top:20px; text-align:center;">
+      <a href="index.html">⬅ Back to homepage</a>
+    </div>
   `;
 }
 

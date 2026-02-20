@@ -1,65 +1,117 @@
+/* General page styling */
 body {
-  background-color: #f9f7fe;
-  font-family: sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff; /* switch text to white for contrast */
 }
 
-h1 {
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 36px;
-}
 
-h2 {
-  margin: 0 0 5px;
-  font-size: 28px;
-}
 
-select {
-  display: block;
-  width: 100%;
-  font-size: 18px;
-  border-radius: 4px;
-  padding: 10px;
-}
 
+/* Container */
 .container {
-  max-width: 600px;
-  margin: 60px auto;
-  background: white;
-  padding: 30px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 600px;   /* narrower width */
+  margin: 40px auto;  /* less vertical spacing */
+  padding: 25px;      /* smaller padding inside */
+  background: #fff;
   border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
+/* Heading with globe */
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+h1 i {
+  color: #4a90e2;
+  font-size: 40px;
+  animation: spin 10s linear infinite;
+}
+
+/* Globe spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* City section */
 .city {
   display: flex;
-  margin: 10px 0;
   justify-content: space-between;
-  padding: 30px 0;
+  align-items: center;
+  margin: 2px 0;
+  padding: 2px;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
 }
 
 .city:last-child {
-  border: none;
+  border-bottom: none;
+}
+
+h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #34495e;
 }
 
 .date {
-  opacity: 0.7;
+  font-size: 16px;
+  color: #7f8c8d;
 }
 
 .time {
   font-size: 48px;
   font-weight: bold;
+  color: #2c3e50;
 }
 
 .time small {
-  font-size: 24px;
+  font-size: 22px;
   vertical-align: middle;
   line-height: 48px;
+  color: #4a90e2;
 }
 
+/* Dropdown */
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 40px;
+}
+
+footer a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
